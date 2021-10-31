@@ -10,9 +10,9 @@ HEADER = {
 options = webdriver.ChromeOptions()
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
 options.add_experimental_option("detach", True)
+
 class WSelenium:
     def __init__(self):
-        
         driver = webdriver.Chrome(options=options)
 
         driver.get(LINK)
