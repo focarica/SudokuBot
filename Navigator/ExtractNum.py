@@ -1,7 +1,9 @@
 from wSelenium import WSelenium
 from itertools import product
+import string
 import numpy as np
 
+#Return all numbers from the table
 def allTable(grid):
     numbers = []
     rangeAll = range(0,9)
@@ -44,6 +46,12 @@ for i in range(9,81,9):
 
 lineRange = range(0,9,3)
 
+qd = []
 for index, l, c in product(lineRange,lineRange,lineRange):
-    lines = quadrant[l:l+3, c:c+3]
-    print(lines)
+    quad = quadrant[l:l+3, c:c+3]
+    for i in quad:
+        print(i, end=" ")
+    qd.append(quadrant[l:l+3, c:c+3])
+    print()
+    
+qd = np.array_split(qd, 9)
