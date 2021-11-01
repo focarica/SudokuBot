@@ -38,20 +38,25 @@ bs = driver.BeautifulSoup()
 Allgrid = bs.findAll('div', attrs={'class':'game-grid__group'})
 alltable = allTable(Allgrid)
 
-
+#Split each line in quadrants
 quadrant = [alltable[0:9]]
 for i in range(9,81,9):
     line = [alltable[i:i+9]]
     quadrant = np.append(quadrant, line, axis=0)
 
-lineRange = range(0,9,3)
-
 qd = []
-for index, l, c in product(lineRange,lineRange,lineRange):
-    quad = quadrant[l:l+3, c:c+3]
-    for i in quad:
-        print(i, end=" ")
-    qd.append(quadrant[l:l+3, c:c+3])
-    print()
-    
-qd = np.array_split(qd, 9)
+newqd = []
+
+#Extract lines from quadrant
+for c in range(0,9,3):
+    for l in range(0,9,3):
+        qd.append(quadrant[c:c+3, l:l+3])
+
+#Organize the lines
+for i in range(0,9):
+    for j in range(0,3):
+        for y in range(0,3):
+            newqd.append(qd[i][j][y])
+
+for i in np.array_split(newqd, 9):
+    print(list(i))
