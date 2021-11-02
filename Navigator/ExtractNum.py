@@ -1,6 +1,7 @@
 from wSelenium import navigator
 from itertools import product
 from solver import solverSudoku
+from time import sleep
 import numpy as np
 
 #Return all numbers from the table
@@ -55,9 +56,15 @@ def organizedTable(allNumbers):
 
     return newqdLineArray
 
-driver = navigator()
-bs = driver.BeautifulSoup()
+nav = navigator()
+bs = nav.BeautifulSoup()
+driver = nav.GetDriver()
 
 Allgrid = bs.findAll('div', attrs={'class':'game-grid__group'})
 allNumbers = allTable(Allgrid)
 tableResult = organizedTable(allNumbers)
+
+sleep(2)
+cell = driver.find_element_by_xpath('//*[@id="body_wrapper"]/main/section[2]/div[1]/div[2]/div[1]')
+cell.click()
+cell.send_keys('1')
