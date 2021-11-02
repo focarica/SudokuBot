@@ -50,17 +50,8 @@ class solverSudoku():
     def print_board(self):
         bo = self.bo
         for i in range(len(bo)):
-            if i % 3 == 0 and i != 0:
-                print("- - - - - - - - - - - - - ")
-
-            for j in range(len(bo[0])):
-                if j % 3 == 0 and j != 0:
-                    print(" | ", end="")
-
-                if j == 8:
-                    print(bo[i][j])
-                else:
-                    print(str(bo[i][j]) + " ", end="")
+            for j in range(len(bo)):
+                print(f"Numero {bo[i][j]} na linha {i} - coluna {j}")
 
 
     def find_empty(self, bo):
@@ -70,3 +61,20 @@ class solverSudoku():
                     return (i, j)  # row, col
 
         return None
+
+board = [
+    [7,8,0,4,0,0,1,2,0],
+    [6,0,0,0,7,5,0,0,9],
+    [0,0,0,6,0,1,0,7,8],
+    [0,0,7,0,4,0,2,6,0],
+    [0,0,1,0,5,0,9,3,0],
+    [9,0,4,0,6,0,0,0,5],
+    [0,7,0,3,0,0,0,1,2],
+    [1,2,0,0,0,7,4,0,0],
+    [0,4,9,2,0,6,0,0,7]
+]
+board = np.array(board).reshape(9,9)
+
+""" tt = solverSudoku(board)
+tt.solve()
+tt.print_board() """
