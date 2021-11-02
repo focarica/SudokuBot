@@ -13,17 +13,20 @@ options.add_experimental_option("detach", True)
 
 class navigator:
     def __init__(self):
-        driver = webdriver.Chrome(options=options)
+        self.driver = webdriver.Chrome(options=options)
 
-        driver.get(LINK)
-        driver.set_window_size(1110, 768)
+        self.driver.get(LINK)
+        self.driver.set_window_size(1110, 768)
 
-        driver.find_element_by_id('agree_cookies').click()
-        driver.find_element_by_class_name('dropdown').click()
-        driver.find_element_by_xpath('//*[@id="difficulty"]/ul/li[4]').click()
+        self.driver.find_element_by_id('agree_cookies').click()
+        self.driver.find_element_by_class_name('dropdown').click()
+        self.driver.find_element_by_xpath('//*[@id="difficulty"]/ul/li[4]').click()
 
-        self.url = driver.page_source
+        self.url = self.driver.page_source
 
     def BeautifulSoup(self):
         bs = BeautifulSoup(self.url, 'html.parser')
         return bs
+    
+    def GetDriver(self):
+        return self.driver
