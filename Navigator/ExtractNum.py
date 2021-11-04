@@ -64,7 +64,3 @@ Allgrid = bs.findAll('div', attrs={'class':'game-grid__group'})
 allNumbers = allTable(Allgrid)
 tableResult = organizedTable(allNumbers)
 
-sleep(2)
-cell = driver.find_element_by_xpath('//*[@id="body_wrapper"]/main/section[2]/div[1]/div[2]/div[1]')
-cell.click()
-cell.send_keys('1')

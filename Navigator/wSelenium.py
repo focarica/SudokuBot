@@ -9,7 +9,6 @@ HEADER = {
 
 options = webdriver.ChromeOptions()
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
-options.add_experimental_option("detach", True)
 
 class navigator:
     def __init__(self):
