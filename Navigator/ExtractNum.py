@@ -1,7 +1,6 @@
 from wSelenium import navigator
 from itertools import product
 from solver import solverSudoku
-from time import sleep
 import numpy as np
 
 #Return all numbers from the table
@@ -32,6 +31,7 @@ def allTable(allGrid):
             column += 1
         
     return numbers
+
 def organizedTable(allNumbers):
     quadrant = [allNumbers[0:9]]
     qdLine, newqdLine = [], []
@@ -56,11 +56,20 @@ def organizedTable(allNumbers):
 
     return newqdLineArray
 
+def finishedTable(numbers):
+    solver = solverSudoku(numbers)
+    solver.solve()
+    finishedBoard = solver.getFinishedBoard()
+
+    return finishedBoard
+
 nav = navigator()
 bs = nav.BeautifulSoup()
 driver = nav.GetDriver()
 
-Allgrid = bs.findAll('div', attrs={'class':'game-grid__group'})
-allNumbers = allTable(Allgrid)
+allGrid = bs.findAll('div', attrs={'class':'game-grid__group'})
+allNumbers = allTable(allGrid)
 tableResult = organizedTable(allNumbers)
+finishedBoard = finishedTable(tableResult)
 
+print(finishedBoard)
