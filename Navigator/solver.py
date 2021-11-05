@@ -47,11 +47,16 @@ class solverSudoku():
         return True
 
 
-    def print_board(self):
+    def getFinishedBoard(self):
         bo = self.bo
+        newBoard = []
         for i in range(len(bo)):
             for j in range(len(bo)):
-                print(f"Numero {bo[i][j]} na linha {i} - coluna {j}")
+                newBoard.append(bo[i][j])
+
+        newBoard = np.array(newBoard).reshape(9,9)
+
+        return newBoard
 
 
     def find_empty(self, bo):
@@ -61,20 +66,3 @@ class solverSudoku():
                     return (i, j)  # row, col
 
         return None
-
-board = [
-    [7,8,0,4,0,0,1,2,0],
-    [6,0,0,0,7,5,0,0,9],
-    [0,0,0,6,0,1,0,7,8],
-    [0,0,7,0,4,0,2,6,0],
-    [0,0,1,0,5,0,9,3,0],
-    [9,0,4,0,6,0,0,0,5],
-    [0,7,0,3,0,0,0,1,2],
-    [1,2,0,0,0,7,4,0,0],
-    [0,4,9,2,0,6,0,0,7]
-]
-board = np.array(board).reshape(9,9)
-
-""" tt = solverSudoku(board)
-tt.solve()
-tt.print_board() """
