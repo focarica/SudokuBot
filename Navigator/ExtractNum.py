@@ -57,13 +57,21 @@ def organizedTable(allNumbers):
 
     return newqdLineArray
 
-#Answer the table
+#Answer the table and organize to fill
 def finishedTable(numbers):
+    newBoard = []
     solver = solverSudoku(numbers)
     solver.solve()
     finishedBoard = solver.getFinishedBoard()
 
-    return finishedBoard
+    #New lists with boxs
+    for row in range(0,9,3):
+        for column in range(0,9,3):
+            newBoard.append(finishedBoard[row:row+3, column:column+3])
+    
+    newBoard = np.array(newBoard).reshape(9,9).tolist()
+
+    return newBoard
 
 nav = navigator()
 bs = nav.BeautifulSoup()
@@ -74,5 +82,4 @@ allNumbers = allTable(allGrid)
 tableResult = organizedTable(allNumbers)
 finishedBoard = finishedTable(tableResult)
 
-finishedBoard = finishedBoard.tolist()
-fillInNav = nav.FillCells(finishedBoard)
+nav.FillCells(finishedBoard)
