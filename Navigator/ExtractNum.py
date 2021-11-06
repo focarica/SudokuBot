@@ -32,6 +32,7 @@ def allTable(allGrid):
         
     return numbers
 
+#Organize numbers
 def organizedTable(allNumbers):
     quadrant = [allNumbers[0:9]]
     qdLine, newqdLine = [], []
@@ -47,15 +48,16 @@ def organizedTable(allNumbers):
             qdLine.append(quadrant[row:row+3, column:column+3])
     
     #Organize the lines
-    for i in range(0,9):
-        for j in range(0,3):
-            for y in range(0,3):
-                newqdLine.append(qdLine[i][j][y])
+    for box in range(0,9):
+        for row in range(0,3):
+            for column in range(0,3):
+                newqdLine.append(qdLine[box][row][column])
     
     newqdLineArray = np.array(newqdLine).reshape(9,9)
 
     return newqdLineArray
 
+#Answer the table
 def finishedTable(numbers):
     solver = solverSudoku(numbers)
     solver.solve()
@@ -72,4 +74,5 @@ allNumbers = allTable(allGrid)
 tableResult = organizedTable(allNumbers)
 finishedBoard = finishedTable(tableResult)
 
-print(finishedBoard)
+finishedBoard = finishedBoard.tolist()
+fillInNav = nav.FillCells(finishedBoard)
