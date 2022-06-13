@@ -1,9 +1,12 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver import ActionChains
 from selenium import webdriver
 from bs4 import BeautifulSoup
+import sys
+import os 
 
 LINK = "https://sudokutable.com"
 HEADER = {
@@ -14,9 +17,18 @@ HEADER = {
 options = webdriver.ChromeOptions()
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
+def resource_path(path: str) -> str:
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.dirname(__file__)
+    
+    return os.path.join(base_path, path)
 class navigator:
     def __init__(self):
-        self.driver = webdriver.Chrome(options=options)
+        service = Service(resource_path('.\driver\chromedriver.exe'))
+        self.driver = webdriver.Chrome(service= service ,options=options)
+
         self.actions =ActionChains(self.driver)
         self.wait = WebDriverWait(self.driver,30)
 
@@ -29,6 +41,8 @@ class navigator:
         self.driver.find_element_by_xpath('//*[@id="difficulty"]/ul/li[4]').click()
 
         self.url = self.driver.page_source
+
+
 
     def BeautifulSoup(self):
         bs = BeautifulSoup(self.url, 'html.parser')
