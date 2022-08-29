@@ -37,8 +37,8 @@ class navigator:
         self.driver.set_window_size(1110, 768)
 
         self.wait.until(EC.element_to_be_clickable((By.ID, "agree_cookies")))
-        self.driver.find_element_by_class_name('dropdown').click()
-        self.driver.find_element_by_xpath('//*[@id="difficulty"]/ul/li[4]').click()
+        self.driver.find_element(by=By.CLASS_NAME, value='dropdown').click()
+        self.driver.find_element(by=By.XPATH, value='//*[@id="difficulty"]/ul/li[4]').click()
 
         self.url = self.driver.page_source
 
@@ -51,7 +51,7 @@ class navigator:
     def GetDriver(self):
         return self.driver
     
-
+    
     def FillCells(self, ListNum:list):
         bs = self.BeautifulSoup()
         driver = self.GetDriver()
@@ -64,7 +64,7 @@ class navigator:
             for cell in range(0,9):
                 group = bs.findAll('div', attrs={'class':'game-grid__group'})[box]
                 ggCell = group.findAll('div', attrs={'class':'game-grid__cell'})[cell]
-                allCell = driver.find_elements_by_xpath(f"//div[@class='game-grid__group'][{box+1}]/div/*[name()='svg' and @class='']")
+                allCell = driver.find_elements(by=By.XPATH, value=f"//div[@class='game-grid__group'][{box+1}]/div/*[name()='svg' and @class='']")
 
                 cellEmpty = ggCell.find('svg')['class']
 
