@@ -1,6 +1,5 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver import ActionChains
 from selenium import webdriver
@@ -16,6 +15,7 @@ HEADER = {
 
 options = webdriver.ChromeOptions()
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
+options.add_experimental_option("detach", True)
 
 def resource_path(path: str) -> str:
     try:
@@ -24,20 +24,21 @@ def resource_path(path: str) -> str:
         base_path = os.path.dirname(__file__)
     
     return os.path.join(base_path, path)
+
+
 class navigator:
     def __init__(self):
-        service = Service(resource_path('.\driver\chromedriver.exe'))
-        self.driver = webdriver.Chrome(service= service ,options=options)
+        self.driver = webdriver.Chrome(options=options)
 
         self.actions =ActionChains(self.driver)
         self.wait = WebDriverWait(self.driver,30)
 
-
         self.driver.get(LINK)
-        self.driver.set_window_size(1110, 768)
+        self.driver.set_window_size(1100, 1000)
 
         self.wait.until(EC.element_to_be_clickable((By.ID, "agree_cookies")))
-        self.driver.find_element(by=By.CLASS_NAME, value='dropdown').click()
+        self.driver.find_element(by=By.ID, value='difficulty').click()
+
         self.driver.find_element(by=By.XPATH, value='//*[@id="difficulty"]/ul/li[4]').click()
 
         self.url = self.driver.page_source
