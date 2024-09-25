@@ -31,6 +31,7 @@ A small project created to solve Sudoku puzzles on the website [sudokutable.com]
     ```
 
 4. Download chromedriver
+
     If you using Chrome version < 115, please follow this link and install your version:
 
     [Chromedriver until version 115](https://developer.chrome.com/docs/chromedriver/downloads)
