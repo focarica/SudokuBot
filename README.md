@@ -15,11 +15,13 @@ A small project created to solve Sudoku puzzles on the website [sudokutable.com]
     ```
 
 2. Create and Active a venv:
+    If Windows
     ```
-    # If Windows
     .\venv\Scripts\activate
+    ```
 
-    # If MacOs or Linux:
+    If MacOs or Linux:
+    ```
     source venv/bin/activate
     ```
 
@@ -28,6 +30,16 @@ A small project created to solve Sudoku puzzles on the website [sudokutable.com]
     pip install -r requirements.txt
     ```
 
+4. Download chromedriver
+    If you using Chrome version < 115, please follow this link and install your version:
+
+    [Chromedriver until version 115](https://developer.chrome.com/docs/chromedriver/downloads)
+
+    If your version > 115, plese folow this link and install your version:
+
+    [Chromedriver version bigger 115](https://googlechromelabs.github.io/chrome-for-testing/)
+
+    
 ## Important Note
 
 Make sure to update the `chromedriver` according to the current version of Chrome installed on your machine.
