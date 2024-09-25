@@ -1,7 +1,33 @@
-# Sudoku Solver
+# Sudoku Bot
 
 A small project created to solve Sudoku puzzles on the website [sudokutable.com](https://sudokutable.com). This project was developed purely for learning purposes during my studies on web scraping.
 
+## Prerequisites
+    - Python 3.0+
+    - Chrome
+    - Git
+
+## Installation 
+    1. Clone the repository:
+    '''
+    git clone git@github.com:focarica/SudokuBot.git
+    cd sudokuBot
+    '''
+
+    2. Create and Active a venv:
+    '''
+    # If Windows
+    .\venv\Scripts\activate
+
+    # If MacOs or Linux:
+    source venv/bin/activate
+    '''
+
+    3. Install dependencies
+    '''
+    pip install -r requirements.txt
+    '''
+    
 ## Important Note
 
 Make sure to update the `chromedriver` according to the current version installed on your machine.
