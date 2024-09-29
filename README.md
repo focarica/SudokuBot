@@ -43,7 +43,7 @@ A small project created to solve Sudoku puzzles on the website [sudokutable.com]
 
     [Chrome version bigger 115](https://googlechromelabs.github.io/chrome-for-testing/)
 
-    Paste the chromedriver file into [driver dir](https://github.com/focarica/SudokuBot/tree/main/driver)
+    Paste the chromedriver file into [driver dir](https://github.com/focarica/SudokuBot/tree/main/driver) in your work environment.
 
 ## Use
 
