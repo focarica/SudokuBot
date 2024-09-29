@@ -37,11 +37,13 @@ A small project created to solve Sudoku puzzles on the website [sudokutable.com]
 
     If you using a version of Chrome < 115, please follow this link and install your version:
 
-    [Chromedriver until version 115](https://developer.chrome.com/docs/chromedriver/downloads)
+    [Chrome until version 115](https://developer.chrome.com/docs/chromedriver/downloads)
 
     If your version > 115, plese folow this link and install your version:
 
-    [Chromedriver version bigger 115](https://googlechromelabs.github.io/chrome-for-testing/)
+    [Chrome version bigger 115](https://googlechromelabs.github.io/chrome-for-testing/)
+
+    Paste the chromedriver file into [driver dir](https://github.com/focarica/SudokuBot/tree/main/driver)
 
 ## Use
 
