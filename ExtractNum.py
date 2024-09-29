@@ -22,7 +22,7 @@ def allTable(allGrid: list) -> list:
             # Find the SVG element representing the number within the cell
             number = cell.findChild('svg', attrs={'class', 'default'})
 
-            if number is not None:
+            if number != None:
                 # Extract text from the SVG, remove newline characters
                 number = number.get_text().replace('\n', "")
             else:
@@ -35,8 +35,6 @@ def allTable(allGrid: list) -> list:
             if (index + 1) % 3 == 0:
                 column = 0
             column += 1
-            # Append 0 to represent an empty cell in case of an error
-            numbers.append(0)
     
     return numbers
 

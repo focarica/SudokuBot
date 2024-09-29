@@ -1,7 +1,6 @@
 from wSelenium import Navigator
 from ExtractNum import allTable, finishedTable
 
-
 if __name__ == "__main__":
     navigator = Navigator()
     

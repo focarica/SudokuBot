@@ -1,19 +1,15 @@
-# --------------------------------------------
-# Import Statements
-# --------------------------------------------
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver import ActionChains
 from selenium import webdriver
 from bs4 import BeautifulSoup
+
 import sys
 import os 
 
-# --------------------------------------------
-# Constants and Configuration
-# --------------------------------------------
-LINK = "https://sudokutable.com"  # URL of the Sudoku website to interact with
+
+LINK = "https://sudokutable.com" 
 
 HEADER = {
     'User-Agent':
@@ -26,9 +22,7 @@ options = webdriver.ChromeOptions()
 options.add_experimental_option('excludeSwitches', ['enable-logging'])  # Suppress logging
 options.add_experimental_option("detach", True)  # Keep the browser open after script finishes
 
-# --------------------------------------------
-# Helper Function: resource_path
-# --------------------------------------------
+
 def resource_path(path: str) -> str:
     """
     Returns the absolute path to the resource, handling PyInstaller's temporary folder.
@@ -48,11 +42,7 @@ def resource_path(path: str) -> str:
     
     return os.path.join(base_path, path)
 
-# --------------------------------------------
-# Class: Navigator
-# Description:
-#   Handles the navigation and interaction with the Sudoku website using Selenium WebDriver.
-# --------------------------------------------
+
 class Navigator:
     def __init__(self):
         """
@@ -124,6 +114,7 @@ class Navigator:
             alreadyHere = []           # List to keep track of numbers already present in the box
             resultList = ListNum[box]  # Numbers to be filled in the current box
             
+            print(f"{box + 1} box - {resultList}")
             # Iterate through each of the 9 cells within the current box
             for cell in range(0, 9):
                 # Locate the current box in the HTML structure
