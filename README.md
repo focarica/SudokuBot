@@ -1,9 +1,9 @@
 # Sudoku Bot
 
-A small project created to solve Sudoku puzzles on the website [sudokutable.com](https://sudokutable.com). This project was developed purely for learning purposes during my studies on web scraping.
+A small project created to solve Sudoku puzzles on the website [sudokutable.com](https://sudokutable.com). This project was developed purely for learning purposes during my studies on web scraping. (I did this in 2021/2022, but recently i wanted make it more understandable and easier for others to use)
 
 ## Prerequisites
-* Python 3.0+
+* Python 3.x
 * Chrome
 * Git
 
@@ -43,7 +43,15 @@ A small project created to solve Sudoku puzzles on the website [sudokutable.com]
 
     [Chromedriver version bigger 115](https://googlechromelabs.github.io/chrome-for-testing/)
 
-    
+## Use
+
+1. Run the application.
+
+```
+python3 main.py
+```
+
+
 ## Important Note
 
-Make sure to update the `chromedriver` according to the current version of Chrome installed on your machine.
+Make sure to update the `chromedriver` according to the current version of Chrome installed on your machine. If you want to understand the program but don't want to read all the code, feel free to read [summary file](https://github.com/focarica/SudokuBot/blob/main/summary.md).
