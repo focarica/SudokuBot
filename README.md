@@ -24,7 +24,7 @@ A small project created to solve Sudoku puzzles on the website [sudokutable.com]
 
     If MacOs or Linux:
     ```
-    python -m venv venv
+    python3 -m venv venv
     source venv/bin/activate
     ```
 
