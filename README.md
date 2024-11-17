@@ -10,7 +10,7 @@ A small project created to solve Sudoku puzzles on the website [sudokutable.com]
 ## Installation 
 1. Clone the repository:
     ```        
-    git clone git@github.com:focarica/SudokuBot.git
+    git clone https://github.com/focarica/SudokuBot.git
     cd sudokuBot
     ```
 
