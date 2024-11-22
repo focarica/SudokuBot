@@ -11,7 +11,7 @@ A small project created to solve Sudoku puzzles on the website [sudokutable.com]
 1. Clone the repository:
     ```        
     git clone https://github.com/focarica/SudokuBot.git
-    cd sudokuBot
+    cd SudokuBot
     ```
 
 2. Create and Active a venv:
