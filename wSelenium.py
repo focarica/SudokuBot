@@ -2,6 +2,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver import ActionChains
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium import webdriver
 from bs4 import BeautifulSoup
 
@@ -51,7 +53,11 @@ class Navigator:
         """
         
         
-        self.driver = webdriver.Chrome(options=options)
+        self.driver = webdriver.Chrome(
+            service=ChromeService(ChromeDriverManager().install()),
+            options=options
+        )
+
         self.actions = ActionChains(self.driver) # Initialize ActionChains for advanced user interactions
         self.wait = WebDriverWait(self.driver, 30) 
 
